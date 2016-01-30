@@ -2,6 +2,10 @@
 
 Set a point in a YouTube video and keep coming back to it
 
+## Demo
+
+http://thomshutt.github.io/youtube-replay
+
 ## Usage
 
 *Down Arrow* - Mark the point that you'd like to come back to
