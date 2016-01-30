@@ -1,0 +1,49 @@
+<html> 
+  <head> 
+    <link href="http://vjs.zencdn.net/5.3.0/video-js.min.css" rel="stylesheet" />
+    <script src="http://vjs.zencdn.net/5.3.0/video.js"></script>
+    <script src="Youtube.js"></script>
+    <style type="text/css">
+      input, a {
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body style="margin: auto auto">
+    <center>
+      <input type="text" id="youtube_url" placeholder="http://www.youtube.com/watch?v=xxx"></input>
+      <a href="javascript://" onclick="player.src(document.getElementById('youtube_url').value);">Load</a>
+      <video
+        id="player"
+        class="video-js vjs-default-skin"
+        controls
+        autoplay
+        width="640" height="264"
+        data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/watch?v=Enq2iAoy5ak"}] }'
+        ></video>
+    </center>
+  </body>
+</html>
+
+<script type="text/javascript">
+  var player = videojs('player');
+  var startTime = 0
+
+  document.onkeypress = function(e) {
+    switch(e.key) {
+      case "ArrowDown":
+        startTime = player.currentTime();
+        break;
+      case "ArrowLeft":
+        player.currentTime(player.currentTime() - 5);
+        break;
+      case "ArrowRight":
+        player.currentTime(player.currentTime() + 5);
+        break;
+      case "ArrowUp":
+      case " ":
+        player.currentTime(startTime);
+        break;
+    }
+  }
+</script>
